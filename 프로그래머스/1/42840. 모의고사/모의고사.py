@@ -1,3 +1,10 @@
+# 인덱스 가장큰거(특히!! 중복되는거) 아래로 해결
+# ma = max(cnt)
+# 
+# for i, num in enumerate(cnt):
+#     if ma == num:
+#         index.append(i + 1)                    
+
 def solution(answers):
     answer = []
     one = [1,2,3,4,5]
