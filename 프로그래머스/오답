@@ -1,0 +1,5 @@
+문자열 find함수
+
+조합 from itertools import combinations, permutations
+combinations(nums, 2)
+
