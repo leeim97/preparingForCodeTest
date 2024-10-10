@@ -14,3 +14,6 @@ str.isdigit()
 
 여러 자리수 숫자문자를 숫자로
 int(c[:-1])
+
+key 기준으로 정렬
+numlist.sort(key = lambda x : abs(x))
