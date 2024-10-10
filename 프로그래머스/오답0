@@ -8,3 +8,6 @@ def gcd(a, b):
     for i in range(min(a, b), 0, -1):
         if a % i == 0 and b % i == 0:
             return i
+
+str.isdigit()
+문자열이 '숫자'로만 이루어져있는지 확인하는 함수 입니다
