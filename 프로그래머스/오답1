@@ -4,3 +4,9 @@
 
 import math
 math.sqrt(number), math.pow(x,y) x의 y
+
+
+# 3. 둘의 차를 구하면 정답만 남아있는 counter를 반환한다
+import collections    answer = collections.Counter(participant) - collections.Counter(completion)
+list를 가지고 Counter를 생성하면, Counter는 Key가 이름이고, Value가 count 인 dictionary를 반환하게 된다. 
+Counter class는 상호간의 뺄셈 연산을 지원한다. 
