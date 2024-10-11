@@ -11,3 +11,6 @@ import collections    answer = collections.Counter(participant) - collections.Co
 list를 가지고 Counter를 생성하면, Counter는 Key가 이름이고, Value가 count 인 dictionary를 반환하게 된다. 
 Counter class는 상호간의 뺄셈 연산을 지원한다. 
 hash('something')하면 해쉬값 무작위로 만들어줌
+
+# 리스트에서 pop을 원하는 인덱스에 할수있음
+progresses.pop(0)
