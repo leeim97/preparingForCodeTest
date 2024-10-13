@@ -1,19 +1,9 @@
 def solution(citations):
+    answer = 0
+    citations.sort(reverse=True)
     
-    citations.sort()
-    maxM = 0
-    
-    for i in range(max(citations),1,-1):
-        cntM = 0
-        cntm = 0
-        for j in citations:
-            if j>=i:
-                cntM+=1
-            if j <= i :
-                cntm +=1
-        if cntM >= i and cntm <=i:
-            maxM = i
-            break
-    
-    answer = maxM
-    return answer
+    for i in range(len(citations)):              # H_index가 존재하고 H_index를 넘는 논문이 몇 개인지 구할때
+        if(citations[i] < i+1):
+            return i
+
+    return len(citations)    
