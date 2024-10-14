@@ -14,3 +14,5 @@
 
 global a 
 a=2 이런 형식으로 써줘야함 https://lets-hci-la-ai-withme.tistory.com/68
+
+그래프에서 가중치가 모두 같은 문제라 bfs로 풀어도 된다는얘기가?
