@@ -1,37 +1,48 @@
-def find_parent(a, parent):
-    if parent[a] != a:
-        parent[a] = find_parent(parent[a], parent)
-    return parent[a]
+from collections import deque
 
-def union(a, b, parent):
-    a_root = find_parent(a, parent)
-    b_root = find_parent(b, parent)
-    if a_root < b_root:
-        parent[b_root] = a_root
-    else:
-        parent[a_root] = b_root
 
-def calculate_difference(parent, n):
-    from collections import Counter
-    # 각 노드의 최종 부모를 찾습니다.
-    root_parents = [find_parent(i, parent) for i in range(1, n+1)]
-    count = Counter(root_parents)
-    if len(count) != 2:
-        # 두 그룹으로 정확히 나뉘지 않았을 경우, 큰 차이를 반환
-        return max(count.values()) - min(count.values())
-    else:
-        groups = list(count.values())
-        return abs(groups[0] - groups[1])
-
+    
 def solution(n, wires):
-    answer = float('inf')  # 최소 차이를 찾으므로 초기값을 무한대로 설정
-    for i in range(len(wires)):
-        parent = list(range(n+1))  # 부모 배열을 초기화
-        for j in range(len(wires)):
-            if i == j:
-                continue  # 현재 제거할 wire는 제외
-            a, b = wires[j]
-            union(a, b, parent)
-        diff = calculate_difference(parent, n)
-        answer = min(answer, diff)
+    answer = 999999999
+    visited = [False for _ in range(n+1)]
+    graph = [ [] for _ in range(n+1) ]
+    
+    for a,b in wires:
+        graph[a].append(b)
+        graph[b].append(a)
+    
+    
+    def bfs(start, visited):
+        queue = deque([start])
+
+        visited[start] = True
+        cnt = 1
+
+        while queue:
+            v = queue.popleft()
+            for i in graph[v] : 
+                if visited[i] == False:
+                    queue.append(i)
+                    visited[i] = True
+                    cnt +=1
+        return cnt
+    
+    
+        
+
+    for i,j in wires:
+        graph[i].remove(j)
+        graph[j].remove(i)
+
+        a= bfs(i,visited)
+        visited = [False for _ in range(n+1)]
+        b= bfs(j,visited)
+        visited = [False for _ in range(n+1)]
+        answer = min(abs(a-b),answer)
+        
+        graph[i].append(j)
+        graph[j].append(i)
+
+    print(graph)
+    
     return answer
