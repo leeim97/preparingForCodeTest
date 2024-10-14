@@ -1,3 +1,5 @@
+# cnt = 0으로 초기화 하지 않는 이유는 부모cnt는 자식 cnt에 영향을 안받으니까!!
+
 def dfs(k, cnt, dungeons, visited):
     global answer  # 전역 변수 선언
     
