@@ -11,11 +11,20 @@ ORDER BY HIRE_YMD DESC , DR_NAME ;
 # DATE_FORMAT 으로 날짜 형식 맞춰주기 특히 대문자 소문자 마다 의미 다름 Y-> 4글자 y->  두글자
 DATE_FORMAT(HIRE_YMD, '%Y-%m-%d') as HIRE_YMD
 
+# DATEADD()   SELECT DATEADD(DAY, 7, '2024-10-17') AS NewDate;
+# DATEDIFF()   SELECT DATEDIFF(DAY, '2024-10-01', '2024-10-17') AS DateDifference;
+# EXTRACT()   SELECT EXTRACT(YEAR FROM '2024-10-17') AS YearPart;
+기능: 날짜에서 특정 부분(연도, 월, 일 등)을 추출.
+# TIMESTAMPDIFF()    SELECT TIMESTAMPDIFF(HOUR, '2024-10-16 12:00:00', '2024-10-17 12:00:00') AS HourDifference;
+기능: 두 타임스탬프 간의 차이를 반환.
+
 # 생일이 3월인 사람 cf) YEAR()와 DAY()
 MONTH(DATE_OF_BIRTH)=3
 
 # MySQL에서 Column의 값이 Null인 경우를 처리해주는 함수들은 IFNULL, CASE, COALESCE과 같은 함수
 SELECT IFNULL(Column명, "Null일 경우 대체 값") FROM 테이블명;
+
+# IS NULL()은 NULL 값인지 확인해줌
 
 # 정규 표현식 REGEXP(regular expression) 통풍시트,열선시트,가죽시트 중 하나 이상을 가진 문자열
 WHERE  OPTIONS REGEXP '통풍시트|열선시트|가죽시트'
@@ -26,3 +35,6 @@ COUNT(*) : 테이블의 모든 ROW의 수를 센다.   COUNT(column): 해당 COL
 COUNT(DISTINCT column) : 해당 COLUMN의 중복을 제거하고 NOT NULL인 ROW의 수를 센다.
 
 COUNT(DISTINCT CASE WHEN condition THEN result) : 조건에 해당하는 COLUMN의 NOT NULL인 ROW의 수를 센다.
+
+WHERE 절에서는 **SELECT 절에 정의된 별칭(alias)**을 사용할 수 없습니다.
+이유는 WHERE 절이 SELECT 문이 실행되기 전에 처리되기 때문입니다. 대신, 별칭을 사용하려면 HAVING 절을 사용해야 합니다.
