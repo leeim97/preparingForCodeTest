@@ -19,3 +19,10 @@ SELECT IFNULL(Column명, "Null일 경우 대체 값") FROM 테이블명;
 
 # 정규 표현식 REGEXP(regular expression) 통풍시트,열선시트,가죽시트 중 하나 이상을 가진 문자열
 WHERE  OPTIONS REGEXP '통풍시트|열선시트|가죽시트'
+
+# count
+COUNT(*) : 테이블의 모든 ROW의 수를 센다.   COUNT(column): 해당 COLUMN이 NOT NULL인 ROW의 수만 센다.
+
+COUNT(DISTINCT column) : 해당 COLUMN의 중복을 제거하고 NOT NULL인 ROW의 수를 센다.
+
+COUNT(DISTINCT CASE WHEN condition THEN result) : 조건에 해당하는 COLUMN의 NOT NULL인 ROW의 수를 센다.
