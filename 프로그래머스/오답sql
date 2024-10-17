@@ -10,3 +10,6 @@ ORDER BY HIRE_YMD DESC , DR_NAME ;
 
 # DATE_FORMAT 으로 날짜 형식 맞춰주기 특히 대문자 소문자 마다 의미 다름 Y-> 4글자 y->  두글자
 DATE_FORMAT(HIRE_YMD, '%Y-%m-%d') as HIRE_YMD
+
+# 생일이 3월인 사람 cf) YEAR()와 DAY()
+MONTH(DATE_OF_BIRTH)=3
