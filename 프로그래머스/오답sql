@@ -13,3 +13,6 @@ DATE_FORMAT(HIRE_YMD, '%Y-%m-%d') as HIRE_YMD
 
 # 생일이 3월인 사람 cf) YEAR()와 DAY()
 MONTH(DATE_OF_BIRTH)=3
+
+# MySQL에서 Column의 값이 Null인 경우를 처리해주는 함수들은 IFNULL, CASE, COALESCE과 같은 함수
+SELECT IFNULL(Column명, "Null일 경우 대체 값") FROM 테이블명;
