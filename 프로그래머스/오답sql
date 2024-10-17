@@ -16,3 +16,6 @@ MONTH(DATE_OF_BIRTH)=3
 
 # MySQL에서 Column의 값이 Null인 경우를 처리해주는 함수들은 IFNULL, CASE, COALESCE과 같은 함수
 SELECT IFNULL(Column명, "Null일 경우 대체 값") FROM 테이블명;
+
+# 정규 표현식 REGEXP(regular expression) 통풍시트,열선시트,가죽시트 중 하나 이상을 가진 문자열
+WHERE  OPTIONS REGEXP '통풍시트|열선시트|가죽시트'
