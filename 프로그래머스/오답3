@@ -1,0 +1,3 @@
+그래프에서 find_parent 마지막에 한번 해줘서 업데이트 시켜줘야됌
+for i in range(n):
+        parent[i] = find_parent(parent, i)
