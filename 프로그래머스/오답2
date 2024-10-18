@@ -18,3 +18,6 @@ a=2 이런 형식으로 써줘야함 https://lets-hci-la-ai-withme.tistory.com/6
 그래프에서 가중치가 모두 같은 문제라 bfs로 풀어도 된다는얘기가?
 
 [15,1,6,5,4]에서 조합쓰면 당연히 (15,1),(15,6)...처럼 인덱스 순서대로
+
+any() : 하나라도 True라면 True 반환
+all() : 모두 True면 True 반환
