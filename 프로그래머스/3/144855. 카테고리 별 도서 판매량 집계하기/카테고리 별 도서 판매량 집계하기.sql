@@ -1,0 +1,25 @@
+-- 코드를 입력하세요
+SELECT 
+    A.CATEGORY , SUM(B.SALE) AS TOTAL_SALES
+FROM
+    BOOK A
+JOIN
+    (
+            SELECT BOOK_ID, SUM(SALES) AS SALE
+            FROM BOOK_SALES
+            WHERE MONTH(SALES_DATE) = 1
+            GROUP BY BOOK_ID
+            ) AS B
+ON A.BOOK_ID = B.BOOK_ID
+GROUP BY CATEGORY
+ORDER BY
+    A.CATEGORY ASC;
+
+# SELECT BOOK_ID, SUM(SALES) AS SALE
+#             FROM BOOK_SALES
+#             WHERE MONTH(SALES_DATE) = 1
+#             GROUP BY BOOK_ID
+
+
+    
+      
