@@ -1,0 +1,10 @@
+-- 코드를 입력하세요
+# 입양에는 있고 보호에는 없는것
+# 입양에도 없고 보호에도 없는것
+
+SELECT A.ANIMAL_ID, A.NAME
+FROM ANIMAL_OUTS A
+LEFT OUTER JOIN ANIMAL_INS B
+ON A.ANIMAL_ID = B.ANIMAL_ID
+WHERE 
+    B.ANIMAL_ID IS NULL
