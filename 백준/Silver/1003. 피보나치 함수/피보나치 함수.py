@@ -1,16 +1,19 @@
-t = int(input()) # 테스트 케이스
-for _ in range(t):
-    n = int(input())
+# f(0) =1 0, f(1)=0 1 , f(2) = 1 1, f(3) = 1 2, f(4) = 2 3
 
-    # 0과 1의 호출 횟수(N은 40보다 작거나 같은 자연수 또는 0)
-    zero = [0] * (41)
-    one = [0] * (41)
-    
-    zero[0], one[0] = 1, 0 # f(0)
-    zero[1], one[1] = 0, 1 # f(1)
+dp = [[0,0] for _ in range(41)]
 
-    for i in range(2, n+1):
-        zero[i] = zero[i-1] + zero[i-2]
-        one[i] = one[i-1] + one[i-2]
+dp[0] = [1,0]
+dp[1] = [0,1]
 
-    print(zero[n], one[n])
+
+n = int(input())
+
+for _ in range(n):
+    num = int(input())
+
+    for i in range(2,num+1):
+        dp[i][0] = dp[i-1][0] + dp[i-2][0]
+        dp[i][1] = dp[i - 1][1] + dp[i - 2][1]
+
+
+    print(dp[num][0],dp[num][1])
