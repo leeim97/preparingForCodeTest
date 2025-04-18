@@ -1,19 +1,37 @@
-# f(0) =1 0, f(1)=0 1 , f(2) = 1 1, f(3) = 1 2, f(4) = 2 3
+from collections import deque
 
-dp = [[0,0] for _ in range(41)]
+def bfs(a,b):
+    dx=[-1,1,0,0]
+    dy=[0,0,-1,1]
+    queue = deque([(a,b)])
 
-dp[0] = [1,0]
-dp[1] = [0,1]
+    while queue:
+        x,y= queue.popleft()
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
+
+            if nx <1 or ny <1 or nx >N or ny > M :
+                continue
+
+            if graph[nx][ny] == 0:
+                continue
+
+            if graph[nx][ny] == 1:
+                queue.append((nx,ny))
+                graph[nx][ny] = graph[x][y] +1
 
 
-n = int(input())
-
-for _ in range(n):
-    num = int(input())
-
-    for i in range(2,num+1):
-        dp[i][0] = dp[i-1][0] + dp[i-2][0]
-        dp[i][1] = dp[i - 1][1] + dp[i - 2][1]
 
 
-    print(dp[num][0],dp[num][1])
+
+N,M = map(int,input().split())
+
+graph = [ [0]*(M+1) for _ in range(N+1) ]
+
+for i in range(1,N+1):
+    temp_list = map(int,list(input()))
+    graph[i][1:] = temp_list
+
+bfs(1,1)
+print(graph[N][M])
